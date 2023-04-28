@@ -1,17 +1,17 @@
 package com.book.view;
 
+import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.book.controller.Controller;
-import com.goodee.model.vo.Member;
 
 //사용자가 보게될 화면 구성
 
 public class MainMenu {
 	
 	private Scanner sc = new Scanner(System.in);
-	private Controller c1 = new Controller();
+	private Controller cl = new Controller();
 	
 	public void mainMenu() {
 	
@@ -29,14 +29,15 @@ public class MainMenu {
 			
 			switch(menu) {
 			case 1: addbook(); break;   
-			case 2: listbook(); break;    
-			case 3: deletebook(); break;    
+			case 2: selectList(); break;    
+			case 3: deleteBook(); break;    
 			case 0: System.out.println("프로그램을 종료합니다."); return;
 			default : System.out.println("메뉴를 잘못입력했습니다. 다시 입력해주세요.");
 			}
 		}
 	}	
-	//1번 선택시 보이는 회원추가 창(서브화면)
+	
+	//도서추가
 	public void addbook() {
 		System.out.println("\n== 도서 추가 ==");
 		
@@ -52,18 +53,23 @@ public class MainMenu {
 		System.out.println("가격 : ");
 		String price = sc.nextLine();
 		
-		c1.addbook(bookid,bookname,publisher,price);
+		cl.addbook(bookid, bookname, publisher, price);
+	}
+	
+
+	public void selectList() {
+	      
+	}
+	private void deleteBook() {
+		
+	}
+	//삭제할 번호
+	public String inputId(Book Id) {
+		System.out.println("\n삭제할 번호 : ");
+		return sc.nextLine();
 	}
 	
 	
-	public void listbook() {
-		
-		
-	}
-	
-	public void deletebook() {
-		
-	}
 	//------응답 화면----
 	public void displaySuccess(String message) {
 		System.out.println("\n서비스 요청 성공 : " + message);
@@ -84,7 +90,7 @@ public class MainMenu {
 	public void displayMemberList(ArrayList<Book> list) {
 		System.out.println("\n조회된 데이터는 다음과 같습니다.\n");
 		
-		for(book v: list) {
+		for(Book v: list) {
 			System.out.println(v);
 		}
 	}

@@ -130,7 +130,7 @@ public class MemberDao {
 			
 			while(rset.next()) {
 				Member m = new Member();
-				
+				//클래스 		생성자
 				// rset에서 user_no컬럼을 읽어서 m객체의 setter(setUserNo)를 이용하여 입력
 				m.setUserNo(rset.getInt("user_no"));  
 				m.setUserId(rset.getString("user_id"));

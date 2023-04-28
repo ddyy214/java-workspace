@@ -1,7 +1,7 @@
 package com.book.model.vo;
 
 
-public class Vo {
+public class Book {
 	private String bookid;
 	private String bookname;
 	private String publisher;
@@ -10,11 +10,12 @@ public class Vo {
 	
 	@Override
 	public String toString() {
-		return "Vo [bookname=" + bookname + ", publisher=" + publisher + "]";
+		return "Book [bookname=" + bookname + ", publisher=" + publisher + "]";
 	}
 
+	public Book() {}
 	
-	public Vo(String bookid, String bookname, String publisher, String price) {
+	public Book(String bookid, String bookname, String publisher, String price) {
 		super();
 		this.bookid = bookid;
 		this.bookname = bookname;
